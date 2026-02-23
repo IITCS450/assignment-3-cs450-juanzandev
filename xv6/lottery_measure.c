@@ -23,8 +23,6 @@ int main(int argc, char **argv) {
   printf(1, "=== Lottery CPU Share Test ===\n");
   printf(1, "Spawning %d children with tickets: 1, 2, 4\n", num_children);
   printf(1, "Each child does %d work units\n", work_units);
-  printf(1, "Expected: Child 4 finishes first, Child 1 finishes last\n");
-  printf(1, "Time ratio should approach 4:2:1\n\n");
   
   for(int i = 0; i < num_children; i++) {
     int pid = fork();
@@ -59,8 +57,5 @@ int main(int argc, char **argv) {
   }
   
   printf(1, "\n=== Test Complete ===\n");
-  printf(1, "Analyze the timing above. If scheduler is fair:\n");
-  printf(1, "  - Tickets 4 child should be ~4x faster than tickets 1 child\n");
-  printf(1, "  - Tickets 2 child should be ~2x faster than tickets 1 child\n");
   exit();
 }
